@@ -9,6 +9,12 @@ class TodosController < ApplicationController
     redirect_to action: "index"
   end
 
+  def destroy
+    Todo.find(params[:id]).destroy
+
+    redirect_to action: "index"
+  end
+
   private
 
   def todo_params
