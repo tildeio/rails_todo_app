@@ -1,20 +1,17 @@
 class TodosController < ApplicationController
   def index
     @todos = Todo.all
-
-
-    # find all the todos
-    # and then return them todos
-  end
-
-  def new
-    # don't need to find the todos here,
-    # but need to make sure that we return a view
-    # that has a form so that the user can make a todo
   end
 
   def create
-    # make sure we can handle the data that the user sends us
-    # and take that data and make a new "todo"
+    Todo.create(title: todo_params[:title], status: todo_params[:status])
+
+    redirect_to action: "index"
+  end
+
+  private
+
+  def todo_params
+    params.require(:todo).permit(:title, :status)
   end
 end
