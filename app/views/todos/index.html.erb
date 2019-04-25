@@ -1,0 +1,18 @@
+<h1>Todos#index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Todo</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.title %></td>
+        <td><%= todo.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
